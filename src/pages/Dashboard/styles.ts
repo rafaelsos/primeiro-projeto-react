@@ -1,16 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
+
+interface FormProps {
+  hasError: boolean;
+}
 
 export const Title = styled.h1`
   font-size: 40px;
   color: #3a3a3a;
   max-width: 450px;
-  line-height: 56px;
+  line-height: 45px;
 
-  margin-top: 60px;
+  margin-top: 20px;
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<FormProps>`
   margin-top: 20px;
   max-width: 700px;
 
@@ -18,11 +22,20 @@ export const Form = styled.form`
 
   input {
     flex: 1;
-    height: 70px;
+    width: 100%;
+    height: 60px;
     padding: 0 24px;
     border: 0;
     border-radius: 5px 0 0 5px;
     color: #3a3a3a;
+    border: 2px solid #fff;
+    border-right: 0;
+
+    ${(props) =>
+      props.hasError &&
+      css`
+        border-color: #c53030;
+      `}
 
     &::placeholder {
       color: #a8a8b3;
@@ -30,8 +43,9 @@ export const Form = styled.form`
   }
 
   button {
-    width: 210px;
-    height: 70px;
+    max-width: 210px;
+    width: 100%;
+    height: 60px;
     background: #04d361;
     border: 0;
     border-radius: 0 5px 5px 0;
@@ -46,14 +60,14 @@ export const Form = styled.form`
 `;
 
 export const Repositories = styled.div`
-  margin-top: 80px;
+  margin-top: 50px;
   max-width: 700px;
 
   a {
     background: #fff;
     border-radius: 5px;
     width: 100%;
-    padding: 24px;
+    padding: 16px;
     display: block;
     text-decoration: none;
 
@@ -66,7 +80,7 @@ export const Repositories = styled.div`
     }
 
     & + a {
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     img {
@@ -76,7 +90,8 @@ export const Repositories = styled.div`
     }
 
     div {
-      margin-left: 16px;
+      margin: 0 16px;
+      flex: 1;
       strong {
         font-size: 20px;
         color: #3d3d4d;
@@ -94,4 +109,10 @@ export const Repositories = styled.div`
       color: #cbcbd6;
     }
   }
+`;
+
+export const Error = styled.span`
+  display: block;
+  color: #c53030;
+  margin-top: 8px;
 `;
