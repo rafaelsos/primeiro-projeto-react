@@ -8,7 +8,7 @@
     "airbnb",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettiet/recommended"
+    "plugin:prettier/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -34,7 +34,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, {"extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
-    "import/extensios": [
+    "import/extensions": [
       "error",
       "ignorePackages",
       {
